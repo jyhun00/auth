@@ -1,0 +1,57 @@
+spring:
+  mandatory-file-encoding: UTF-8
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    username: hoon
+    password: hoon1234
+    url: jdbc:mysql://localhost:3306/auth?serverTimezone=Asia/Seoul&useUnicode=yes&characterEncoding=UTF-8
+    data
+
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL5InnoDBDialect
+    hibernate:
+      ddl-auto: update
+      naming:
+        physical-strategy: org.hibernate.boot.model.naming.PhysicalNamingStrategyStandardImpl
+        implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyComponentPathImpl
+      use-new-id-generator-mappings: false
+    show-sql: true
+    properties:
+      hibernate.format_sql: true
+
+  redis:
+    host: localhost
+    port: 6379
+
+logging:
+  level:
+    root: INFO
+    org.hibernate: INFO
+    com.growingmom.auth: INFO
+  pattern:
+    console: "%d{yyyy-MM-dd HH:mm:ss} - %msg%n"
+    file: "%d{yyyy-MM-dd HH:mm:ss} [%thred] %-5level %logger{36} - %msg%n"
+
+  logback:
+    rollingpolicy:
+      file-name-pattern: "${LOG_FILE}.%d{yyyy-MM-dd}_%i.zip"
+      max-size: 10MB
+  file:
+    name: logs
+
+jwt:
+  header: Authorization
+  secret: ZGtzc3VkZ2t0cGR5R0tETHJueHBzeGtyUm54cHNhaGZtcnBzcm50YWhzbGRrc2RqZjcyMzkwNG9uZg==ZGtzc3VkZ2t0cGR5R0tETHJueHBzeGtyUm54cHNhaGZtcnBzcm50YWhzbGRrc2RqZjcyMzkwNG9uZg==ZGtzc3VkZ2t0cGR5R0tETHJueHBzeGtyUm54cHNhaGZtcnBzcm50YWhzbGRrc2RqZjcyMzkwNG9uZg==
+  token-validity-in-seconds: 2592000
+
+server:
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+
+
+
